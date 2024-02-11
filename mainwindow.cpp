@@ -33,13 +33,15 @@ void MainWindow::on_button2_clicked()
     QString filename = QFileDialog::getOpenFileName(this, path);
     ui -> label1 -> setText(filename);
     QFile file(filename);
-
+    int ind = ui->treeWidget-> topLevelItemCount();
+    if (ind > 0){
+        ui->treeWidget->clear();
+    }
     ui->treeWidget->setColumnCount(2);
     QTreeWidgetItem *treeItem = new QTreeWidgetItem(ui->treeWidget);
-    treeItem->setText(0, "DI");
     // Add root nodes
-    //addTreeRoot("B", "Root_second");
-    //addTreeRoot("C", "Root_third");
+    treeItem->setText(0, "DI");
+
 
     if ( !file.open(QFile::ReadOnly | QFile::Text) ) {
             qDebug() << "File not exists";
