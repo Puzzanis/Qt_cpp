@@ -54,7 +54,6 @@ void MainWindow::on_button2_clicked()
                 while (!in.atEnd()){
                     // ... построчно
                     QString line = in.readLine();
-                    //qDebug() << line;
                      //учитываем, что строка разделяется точкой с запятой на колонки
                     items = line.split(";");
 
@@ -71,14 +70,10 @@ void MainWindow::on_button2_clicked()
 void MainWindow::addTreeChild(QTreeWidgetItem *parent,
                   QString name, QString description)
 {
-    // QTreeWidgetItem(QTreeWidget * parent, int type = Type)
+
     QTreeWidgetItem *treeItem = new QTreeWidgetItem();
-
-    // QTreeWidgetItem::setText(int column, const QString & text)
     treeItem->setText(0, name);
-    treeItem->setText(1, description.toLocal8Bit().data());
-
-    // QTreeWidgetItem::addChild(QTreeWidgetItem * child)
+    treeItem->setText(1, description.toLocal8Bit().data()); // для нормального вывода кирилицы
     parent->addChild(treeItem);
 }
 
