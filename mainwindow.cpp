@@ -55,22 +55,11 @@ void MainWindow::on_button2_clicked()
                     //qDebug() << line;
                      //учитываем, что строка разделяется точкой с запятой на колонки
                     items = line.split(";");
-                    //unsigned index = items[0].toInt()-1;
-                    a[index][0] = items[2];
-                    a[index][1] = items[3];
-
-                    //std:: cout << a[index][1].toStdString() << std::endl;
 
                     if (index > 0) {
                         addTreeChild(treeItem, items[2], items[3]);
                     }
                     ++index;
-                    //std:: cout << a[0][0].toStdString() << std::endl;
-                    //for (size_t i = 0 ; sizeof (a)/sizeof (a[0][0]) ; ++i){
-                    //    qDebug() << a[i][0];
-                    //    //std:: cout << a[i][0].toStdString() << std::endl;
-                    //}
-
                 }
 
                 file.close();
