@@ -7,7 +7,6 @@
 #include <QDebug>
 #include <QTextStream>
 #include <QStandardItemModel>
-#include <iostream>
 #include <QStringList>
 #include <QList>
 #include <QStandardItem>
@@ -73,7 +72,7 @@ void MainWindow::addTreeChild(QTreeWidgetItem *parent,
 
     QTreeWidgetItem *treeItem = new QTreeWidgetItem();
     treeItem->setText(0, name);
-    treeItem->setText(1, description.toLocal8Bit().data()); // для нормального вывода кирилицы
+    treeItem->setText(1, description); // для нормального вывода кирилицы
     parent->addChild(treeItem);
 }
 
